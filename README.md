@@ -15,3 +15,7 @@ i.e `strapi-<number of posts>`.
 Then start the docker container.
 `docker-compose up -d`
 
+
+## When deploying to a live server
+
+In the Dockerfile, change NEXT_PUBLIC_STRAPI_API_URL to the URL of your instance of Strapi.
