@@ -12,7 +12,9 @@ i.e `strapi-<number of posts>`.
 
 Build the app.
 
-`NEXT_PUBLIC_STRAPI_API_URL=http://localhost:4001 npm run build`
+`npm install`
+
+`NEXT_PUBLIC_STRAPI_API_URL=<url-of-strapi> npm run build`
 
 Start the app.
 
