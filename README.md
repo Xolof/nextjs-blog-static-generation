@@ -10,6 +10,16 @@ https://strapi.io/blog/build-a-blog-with-next-react-js-strapi
 Make sure the instance of Strapi with corresponding number of posts is running,
 i.e `strapi-<number of posts>`.
 
+The port number for the app can be changed in `package.json`.
+
+```
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p <port>"
+  },
+```
+
 Build the app.
 
 `npm install`
