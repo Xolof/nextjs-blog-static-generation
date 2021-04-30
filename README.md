@@ -5,17 +5,15 @@ This is a blog created with Next.js as part of a study comparing perfomance of W
 The app was created using this tutorial as the base and then modifying it.
 https://strapi.io/blog/build-a-blog-with-next-react-js-strapi
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Run with Docker
+## Start the app
 
 Make sure the instance of Strapi with corresponding number of posts is running,
 i.e `strapi-<number of posts>`.
 
-Then start the docker container.
-`docker-compose up -d`
+Build the app.
 
+`NEXT_PUBLIC_STRAPI_API_URL=http://localhost:4001 npm run build`
 
-## When deploying to a live server
+Start the app.
 
-In the Dockerfile, change NEXT_PUBLIC_STRAPI_API_URL to the URL of your instance of Strapi.
+`npm run start`
