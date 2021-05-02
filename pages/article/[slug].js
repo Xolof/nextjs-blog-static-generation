@@ -85,9 +85,9 @@ export async function getStaticProps ({ params }) {
   const article = articleArr[0][0]
   const otherArticles = articleArr.slice(1).reduce((a, b) => a.concat(b), [])
 
-  // Find index of article in allArticles.
+  // Find index of article in otherArticles.
   for (let i = 0; i < numArticles; i++) {
-    if (allArticles[i].slug === article.slug) {
+    if (otherArticles[i].slug === article.slug) {
       var index = i
     };
   }
@@ -95,10 +95,10 @@ export async function getStaticProps ({ params }) {
   let previousArticle = false
   let nextArticle = false
   if (index > 0) {
-    previousArticle = allArticles[index - 1].slug
+    previousArticle = otherArticles[index - 1].slug
   }
   if (numArticles > index + 1) {
-    nextArticle = allArticles[index + 1].slug
+    nextArticle = otherArticles[index + 1].slug
   }
 
   return {
