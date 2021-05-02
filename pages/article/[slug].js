@@ -69,15 +69,11 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps ({ params }) {
-  const articles = await fetchAPI(
-    `/articles?slug=${params.slug}&status=published`
-  )
-  const article = articles[0]
+  let queries = [fetchAPI(`/articles?slug=${params.slug}&status=published`)]
   const numArticles = await fetchAPI('/articles/count')
 
   let offset = 0
   const limit = 997 // Can only get 997 items from Strapi at one time.
-  let queries = []
   let articlesAdded = 0
   while (articlesAdded < numArticles) {
     queries.push(fetchAPI(`/articles?_start=${offset}&_limit=${limit}&status=published&_sort=publishedAt`))
@@ -86,7 +82,8 @@ export async function getStaticProps ({ params }) {
   }
 
   const articleArr = await Promise.all(queries)
-  const allArticles = articleArr.reduce((a, b) => a.concat(b), [])
+  const article = articleArr[0][0]
+  const otherArticles = articleArr.slice(1).reduce((a, b) => a.concat(b), [])
 
   // Find index of article in allArticles.
   for (let i = 0; i < numArticles; i++) {
